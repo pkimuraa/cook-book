@@ -1,11 +1,11 @@
 <template>
-  <div fluid class="d-flex flex-wrap justify-space-between">
-    <v-card v-for="food in foods" :key="food.idMeal" class="mt-4 mr-4 mb-8" width="30%">
+  <div class="d-flex flex-wrap" :style="contentLayout">
+    <v-card v-for="food in foods" :key="food.idMeal" class="mt-4 my-4 mb-8" :width="width">
       <template slot="progress">
         <v-progress-linear color="deep-purple" height="10" indeterminate></v-progress-linear>
       </template>
 
-      <v-img height="250" :src="food.strMealThumb"></v-img>
+      <v-img width="100%" height="250" :src="food.strMealThumb"></v-img>
 
       <v-card-title>{{ food.strMeal }}</v-card-title>
 
@@ -16,7 +16,6 @@
 
         <!--<div max-heigth="200">{{ food.strInstructions }}</div> -->
       </v-card-text>
-
       <v-divider class="mx-4"></v-divider>
       <v-tabs v-model="tab">
         <v-tab v-for="item in items" :key="item">
@@ -60,13 +59,45 @@ export default {
       tab: null,
       items: ['Ingredients', 'Preparation'],
       text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
+      favorites: [],
     };
   },
+
+  computed: {
+    width() {
+      switch (this.$vuetify.breakpoint.name) {
+        case 'xs':
+          return '51%';
+        case 'sm':
+          return '51%';
+        case 'lg':
+          return '30%';
+        case 'xl':
+          return '30%';
+        default:
+          return '30%';
+      }
+    },
+    contentLayout() {
+      switch (this.$vuetify.breakpoint.name) {
+        case 'xs':
+          return 'justify-content: center';
+        case 'sm':
+          return 'justify-content: center';
+        case 'lg':
+          return 'justify-content: space-between';
+        case 'xl':
+          return 'justify-content: space-between';
+        default:
+          return 'justify-content: space-between';
+      }
+    },
+  },
+
   methods: {
     handleFavorite(prop) {
-      let favorites = [];
-      favorites.push(prop);
-      console.log(favorites);
+      this.favorites.push(prop);
+      console.log(this.favorites);
     },
   },
 };

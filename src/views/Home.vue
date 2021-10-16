@@ -1,15 +1,16 @@
 <template>
-  <div class="page">
+  <div class="d-flex flex-wrap justify-center" fullscreen>
     <div class="title">
       <h1>Welcome {{ name }}, to Oh My Food!</h1>
-      <span class="mt-2"> To start searching to recipes use the field below! </span>
+      <span class="text-center mt-2"> To start searching to recipes use the field below! </span>
     </div>
-    <div class="searchBox">
-      <v-text-field v-model="inputValue" :label="filterType" :loading="randomLoad" />
-      <v-btn color="primary" @click="handleSearch"> Search </v-btn>
-      <v-btn color="primary" @click="handleRandom"> Pick for Me! </v-btn>
-
-      <div>
+    <div class="searchBox" :width="width">
+      <v-text-field v-model="inputValue" :width="width" :label="filterType" :loading="randomLoad" />
+      <div class="actions d-flex justify-center" :style="actionWidth">
+        <v-btn color="primary" @click="handleSearch"> Search </v-btn>
+        <v-btn color="primary" @click="handleRandom"> Pick for Me! </v-btn>
+      </div>
+      <div :style="widthTable">
         <food-table :foods="meal" />
       </div>
     </div>
@@ -32,7 +33,39 @@ export default {
       meal: null,
       randomLoad: false,
       inputValue: '',
+      breakpoint: this.$vuetify.breakpoint.name,
     };
+  },
+
+  computed: {
+    width() {
+      switch (this.breakpoint) {
+        case 'xs':
+          return '80%';
+        case 'lg':
+          return '60%';
+        case 'xl':
+          return '60%';
+        default:
+          return '60%';
+      }
+    },
+    widthTable() {
+      switch (this.breakpoint) {
+        case 'xs':
+          return 'width: 100%';
+        default:
+          return 'width: 80%';
+      }
+    },
+    actionWidth() {
+      switch (this.breakpoint) {
+        case 'xs':
+          return 'width: 100%';
+        default:
+          return 'width: 80%';
+      }
+    },
   },
 
   methods: {
@@ -81,17 +114,16 @@ export default {
   flex-wrap: wrap;
   align-items: baseline;
   justify-content: space-between;
-  width: 60%;
   margin-top: 2em;
 }
-.searchBox input {
-  width: 70%;
-}
+
 .searchBox button {
   margin-right: 1em;
 }
 
 .v-input {
+  width: 30%;
   margin-right: 2em;
+  margin-left: 2em;
 }
 </style>
