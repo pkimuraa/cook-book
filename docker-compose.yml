@@ -1,0 +1,16 @@
+version: '3'
+services:
+  node:
+    container_name: cook-book
+    restart: unless-stopped
+    tty: true
+    image: cook-book
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        target_environment: dev
+    volumes:
+      - './:/app'
+    ports:
+      - '8080:8080'

@@ -31,3 +31,9 @@ yarn lint --fix
 ```
 yarn run test:unit
 ```
+
+### Runing with docker
+
+```
+docker-compose up -d --build
+```
