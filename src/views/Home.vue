@@ -5,12 +5,15 @@
       <span> To start searching to recipes use the field below! </span>
     </div>
     <div class="searchBox">
-      <v-text-field :label="filterType" />
+      <v-text-field :label="filterType" :loading="randomLoad" />
       <v-btn color="primary"> Search </v-btn>
       <v-btn color="primary" @click="handleRandom"> Pick for Me! </v-btn>
       <div class="filterBox">
         <v-radio v-model="filterType" label="Recipes" value="Recipes" />
         <v-radio v-model="filterType" label="Ingredients" value="Ingredients" />
+      </div>
+      <div>
+        <food-table :food="meal" />
       </div>
     </div>
   </div>
@@ -18,12 +21,19 @@
 
 <script>
 import { mapActions } from 'vuex';
+import FoodTable from './FoodTable/FoodData.vue';
 
 export default {
+  components: {
+    FoodTable,
+  },
+
   data() {
     return {
       name: 'David',
       filterType: 'Recipes',
+      meal: null,
+      randomLoad: false,
     };
   },
   methods: {
@@ -31,8 +41,12 @@ export default {
       getRandom: 'search/randomFood',
     }),
     async handleRandom() {
+      this.randomLoad = true;
       const res = await this.getRandom();
-      console.log(res);
+      if (res) {
+        this.meal = res.data.meals.pop();
+      }
+      this.randomLoad = false;
     },
   },
 };
