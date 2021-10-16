@@ -59,7 +59,7 @@ export default {
       tab: null,
       items: ['Ingredients', 'Preparation'],
       text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
-      favorites: [],
+      favorites: this.$store.state.search.favorites,
     };
   },
 
@@ -96,7 +96,7 @@ export default {
 
   methods: {
     handleFavorite(prop) {
-      this.favorites.push(prop);
+      this.$store.commit('search/addFavorites', prop);
       console.log(this.favorites);
     },
   },
