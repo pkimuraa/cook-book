@@ -2,7 +2,7 @@
   <div class="page">
     <div class="title">
       <h1>Welcome {{ name }}, to Oh My Food!</h1>
-      <span> To start searching to recipes use the field below! </span>
+      <span class="mt-2"> To start searching to recipes use the field below! </span>
     </div>
     <div class="searchBox">
       <v-text-field :label="filterType" :loading="randomLoad" />
@@ -36,6 +36,7 @@ export default {
       randomLoad: false,
     };
   },
+
   methods: {
     ...mapActions({
       getRandom: 'search/randomFood',
