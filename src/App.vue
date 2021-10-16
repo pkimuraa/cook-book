@@ -1,30 +1,24 @@
 <template>
   <v-app>
-    <v-main>
-      <v-card height="100vh" width="20%">
-        <v-navigation-drawer permanent>
-          <v-list-item>
-            <v-list-item-content>
-              <v-list-item-title class="text-h6"> Application </v-list-item-title>
-              <v-list-item-subtitle> subtext </v-list-item-subtitle>
-            </v-list-item-content>
+    <v-app-bar app color="primary" dark>
+      <div class="d-flex align-center">
+        <v-img class="shrink mr-2" contain src="@/assets/image/logo.svg" transition="scale-transition" width="40" />
+      </div>
+
+      <v-spacer></v-spacer>
+      <v-menu offset-y>
+        <template v-slot:activator="{ on, attrs }">
+          <v-avatar color="secondary" size="36" v-bind="attrs" v-on="on"> PK </v-avatar>
+        </template>
+        <v-list>
+          <v-list-item v-for="(item, index) in items" :key="index">
+            <v-list-item-title>{{ item.title }}</v-list-item-title>
           </v-list-item>
+        </v-list>
+      </v-menu>
+    </v-app-bar>
 
-          <v-divider></v-divider>
-
-          <v-list dense nav>
-            <v-list-item v-for="item in items" :key="item.title" link>
-              <v-list-item-icon>
-                <v-icon>{{ item.icon }}</v-icon>
-              </v-list-item-icon>
-
-              <v-list-item-content>
-                <v-list-item-title>{{ item.title }}</v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-          </v-list>
-        </v-navigation-drawer>
-      </v-card>
+    <v-main>
       <router-view />
     </v-main>
   </v-app>
@@ -34,10 +28,10 @@
 export default {
   name: 'App',
 
-  data: () => ({
-    //
-  }),
+  data() {
+    return {
+      items: [{ title: 'Click Me' }, { title: 'Click Me' }, { title: 'Click Me' }, { title: 'Click Me 2' }],
+    };
+  },
 };
 </script>
-
-<style lang="scss"></style>
