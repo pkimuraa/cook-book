@@ -6,16 +6,7 @@
       </div>
 
       <v-spacer></v-spacer>
-      <v-menu offset-y>
-        <template v-slot:activator="{ on, attrs }">
-          <v-avatar color="secondary" size="36" v-bind="attrs" v-on="on"> PK </v-avatar>
-        </template>
-        <v-list>
-          <v-list-item v-for="(item, index) in items" :key="index">
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
-          </v-list-item>
-        </v-list>
-      </v-menu>
+      <v-avatar color="secondary" size="36"> PK </v-avatar>
     </v-app-bar>
 
     <v-main>
@@ -30,7 +21,7 @@ export default {
 
   data() {
     return {
-      items: [{ title: 'Click Me' }, { title: 'Click Me' }, { title: 'Click Me' }, { title: 'Click Me 2' }],
+      items: [{ title: 'Favorites' }],
     };
   },
 };
