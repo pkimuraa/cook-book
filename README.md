@@ -1,4 +1,4 @@
-# checkout
+# Cook Book
 
 This is a project based on Vue using Vuex. Using [TheMealDB](https://www.themealdb.com/api.php) to show nice meals and favorite them. Educational purpose only.
 
