@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FoodData.vue should match snapshot 1`] = `
+<div class="d-flex flex-wrap" style="justify-content: space-between;">
+  <v-card width="32%" class="mt-4 my-4 mb-8"><template></template>
+    <v-img responsive="" width="100%" height="250"></v-img>
+    <v-card-title></v-card-title>
+    <v-card-text>
+      <div class="text-subtitle-1">Typical Region: </div>
+      <div class="my-2 text-subtitle-1">Category: </div>
+    </v-card-text>
+    <v-divider class="mx-4"></v-divider>
+    <v-tabs>
+      <v-tab>
+        Ingredients
+      </v-tab>
+      <v-tab>
+        Preparation
+      </v-tab>
+    </v-tabs>
+    <v-tabs-items>
+      <v-tab-item>
+        <v-card flat="" class="px-4 mt-4">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </v-card>
+      </v-tab-item>
+      <v-tab-item>
+        <v-card flat="" class="px-4 mt-4">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </v-card>
+      </v-tab-item>
+    </v-tabs-items>
+    <!---->
+    <!---->
+    <v-card-actions>
+      <v-btn color="red" text=""> </v-btn>
+    </v-card-actions>
+  </v-card>
+</div>
+`;

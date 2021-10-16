@@ -6,7 +6,8 @@
       </div>
 
       <v-spacer></v-spacer>
-      <v-avatar color="secondary" size="36"> PK </v-avatar>
+
+      <v-avatar color="secondary" size="36" v-bind="attrs" v-on="on"> PK </v-avatar>
     </v-app-bar>
 
     <v-main>
@@ -20,9 +21,7 @@ export default {
   name: 'App',
 
   data() {
-    return {
-      items: [{ title: 'Favorites' }],
-    };
+    return {};
   },
 };
 </script>

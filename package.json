@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "axios": "^0.23.0",
+    "chai": "^4.3.4",
     "core-js": "^3.6.5",
+    "inject-loader": "^4.0.1",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",
     "vuetify": "^2.4.0",

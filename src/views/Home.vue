@@ -1,7 +1,7 @@
 <template>
   <div class="d-flex flex-wrap justify-center" fullscreen>
     <div class="title">
-      <h1>Welcome {{ name }}, to Oh My Food!</h1>
+      <h1>Welcome to Oh My Food, {{ name }}</h1>
       <span class="text-center mt-2"> To start searching to recipes use the field below! </span>
     </div>
     <div class="searchBox d-flex flex-wrap justify-center overflow-x-hidden">
