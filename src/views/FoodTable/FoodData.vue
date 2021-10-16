@@ -1,6 +1,6 @@
 <template>
   <div fluid class="d-flex flex-wrap justify-space-between">
-    <v-card v-for="n in 3" :key="n" class="mt-4 mr-4 mb-8" width="30%">
+    <v-card v-for="food in foods" :key="food.idMeal" class="mt-4 mr-4 mb-8" width="30%">
       <template slot="progress">
         <v-progress-linear color="deep-purple" height="10" indeterminate></v-progress-linear>
       </template>
@@ -39,9 +39,10 @@
       </v-card-text>
 
       <v-card-actions>
-        <v-btn color="red" text @click="Favorite"> Favorite </v-btn>
+        <v-btn color="red" text @click="handleFavorite(food)"> Favorite </v-btn>
       </v-card-actions>
     </v-card>
+    <div width="100%"></div>
   </div>
 </template>
 
@@ -49,8 +50,8 @@
 export default {
   name: 'FoodTable',
   props: {
-    food: {
-      type: Object,
+    foods: {
+      type: Array,
       defatul: null,
     },
   },
@@ -60,6 +61,13 @@ export default {
       items: ['Ingredients', 'Preparation'],
       text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
     };
+  },
+  methods: {
+    handleFavorite(prop) {
+      let favorites = [];
+      favorites.push(prop);
+      console.log(favorites);
+    },
   },
 };
 </script>

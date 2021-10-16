@@ -5,15 +5,12 @@
       <span class="mt-2"> To start searching to recipes use the field below! </span>
     </div>
     <div class="searchBox">
-      <v-text-field :label="filterType" :loading="randomLoad" />
-      <v-btn color="primary"> Search </v-btn>
+      <v-text-field v-model="inputValue" :label="filterType" :loading="randomLoad" />
+      <v-btn color="primary" @click="handleSearch"> Search </v-btn>
       <v-btn color="primary" @click="handleRandom"> Pick for Me! </v-btn>
-      <div class="filterBox">
-        <v-radio v-model="filterType" label="Recipes" value="Recipes" />
-        <v-radio v-model="filterType" label="Ingredients" value="Ingredients" />
-      </div>
+
       <div>
-        <food-table :food="meal" />
+        <food-table :foods="meal" />
       </div>
     </div>
   </div>
@@ -34,20 +31,28 @@ export default {
       filterType: 'Recipes',
       meal: null,
       randomLoad: false,
+      inputValue: '',
     };
   },
 
   methods: {
     ...mapActions({
       getRandom: 'search/randomFood',
+      searchIngredient: 'search/searchByIngredient',
     }),
     async handleRandom() {
       this.randomLoad = true;
       const res = await this.getRandom();
       if (res) {
-        this.meal = res.data.meals.pop();
+        this.meal = res.data.meals;
       }
       this.randomLoad = false;
+    },
+    async handleSearch() {
+      const res = await this.searchIngredient(this.inputValue);
+      if (res) {
+        this.meal = res.data.meals;
+      }
     },
   },
 };
@@ -85,11 +90,7 @@ export default {
 .searchBox button {
   margin-right: 1em;
 }
-.filterBox {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
+
 .v-input {
   margin-right: 2em;
 }
