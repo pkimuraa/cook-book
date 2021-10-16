@@ -4,8 +4,8 @@
       <h1>Welcome {{ name }}, to Oh My Food!</h1>
       <span class="text-center mt-2"> To start searching to recipes use the field below! </span>
     </div>
-    <div class="searchBox" :width="width">
-      <v-text-field v-model="inputValue" :width="width" :label="filterType" :loading="randomLoad" />
+    <div class="searchBox d-flex flex-wrap justify-center overflow-x-hidden">
+      <v-text-field v-model="inputValue" fluid :width="width" :label="filterType" :loading="randomLoad" />
       <div class="actions d-flex justify-center" :style="actionWidth">
         <v-btn color="primary" @click="handleSearch"> Search </v-btn>
         <v-btn color="primary" @click="handleRandom"> Pick for Me! </v-btn>
@@ -110,19 +110,14 @@ export default {
   text-align: center;
 }
 .searchBox {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  justify-content: space-between;
-  margin-top: 2em;
+  width: 100%;
 }
-
 .searchBox button {
   margin-right: 1em;
 }
 
 .v-input {
-  width: 30%;
+  width: 100%;
   margin-right: 2em;
   margin-left: 2em;
 }

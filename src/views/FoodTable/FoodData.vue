@@ -5,7 +5,7 @@
         <v-progress-linear color="deep-purple" height="10" indeterminate></v-progress-linear>
       </template>
 
-      <v-img width="100%" height="250" :src="food.strMealThumb"></v-img>
+      <v-img responsive width="100%" height="250" :src="food.strMealThumb"></v-img>
 
       <v-card-title>{{ food.strMeal }}</v-card-title>
 
@@ -67,15 +67,15 @@ export default {
     width() {
       switch (this.$vuetify.breakpoint.name) {
         case 'xs':
-          return '51%';
+          return '80%';
         case 'sm':
-          return '51%';
+          return '80%';
         case 'lg':
-          return '30%';
+          return '32%';
         case 'xl':
-          return '30%';
+          return '32%';
         default:
-          return '30%';
+          return '32%';
       }
     },
     contentLayout() {
