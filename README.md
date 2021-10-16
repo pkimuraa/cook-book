@@ -1,33 +1,29 @@
 # checkout
 
+This is a project based on Vue using Vuex. Using [TheMealDB](https://www.themealdb.com/api.php) to show nice meals and favorite them. Educational purpose only.
+
 ## Project setup
 
 ```
-yarn install
+yarn
 ```
 
 ### Compiles and hot-reloads for development
 
 ```
-yarn run serve
+yarn serve
 ```
 
 ### Compiles and minifies for production
 
 ```
-yarn run build
-```
-
-### Run your tests
-
-```
-yarn run test
+yarn build
 ```
 
 ### Lints and fixes files
 
 ```
-yarn run lint
+yarn lint --fix
 ```
 
 ### Run your unit tests
@@ -35,7 +31,3 @@ yarn run lint
 ```
 yarn run test:unit
 ```
-
-### Customize configuration
-
-See [Configuration Reference](https://cli.vuejs.org/config/).
