@@ -38,7 +38,7 @@
       </v-card-text>
 
       <v-card-actions>
-        <v-btn color="red" text @click="handleFavorite(food)"> {{ food.index }} </v-btn>
+        <v-btn color="red" text @click="handleFavorite(food)"> Favorite </v-btn>
       </v-card-actions>
     </v-card>
   </div>
