@@ -91,11 +91,13 @@ export default {
       this.randomLoad = false;
     },
     async handleSearch() {
+      this.randomLoad = true;
       this.isFavorites = false;
       const res = await this.searchIngredient(this.inputValue);
       if (res) {
         this.meal = res.data.meals;
       }
+      this.randomLoad = false;
     },
   },
 };
